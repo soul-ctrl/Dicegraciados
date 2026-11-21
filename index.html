@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Real de la Villa de los Dicegraciados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f1612;
+            --parchment-bg: #f6eedc;
+            --parchment-edge: #dccba8;
+            --royal-red: #8b1e1e;
+            --royal-gold: #b8860b;
+            --ink-dark: #2c221e;
+            --grinch-green: #2ecc40;
+            --grinch-dark: #145a1d;
+            --grinch-slime: #76ff03;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(46, 204, 64, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(139, 30, 30, 0.12) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5rem 1rem;
+            color: var(--ink-dark);
+            overflow-x: hidden;
+        }
+
+        /* Copos de nieve sutiles de fondo */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(2px 2px at 40px 60px, rgba(255, 255, 255, 0.3), transparent),
+                radial-gradient(3px 3px at 120px 180px, rgba(255, 255, 255, 0.2), transparent),
+                radial-gradient(2px 2px at 250px 90px, rgba(255, 255, 255, 0.25), transparent),
+                radial-gradient(3px 3px at 380px 240px, rgba(255, 255, 255, 0.15), transparent);
+            background-size: 400px 300px;
+            z-index: 0;
+        }
+
+        .letter-container {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            width: 100%;
+            background: var(--parchment-bg);
+            background-image: radial-gradient(ellipse at center, #fbf6ea 0%, #efe2c4 75%, #dfcca3 100%);
+            border-radius: 6px;
+            padding: 3.5rem 3rem;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.75),
+                inset 0 0 40px rgba(139, 105, 50, 0.25);
+            border: 2px solid var(--parchment-edge);
+        }
+
+        /* Marco interior elegante del Conde */
+        .royal-border {
+            border: 2px solid var(--royal-gold);
+            outline: 1px solid rgba(184, 134, 11, 0.4);
+            outline-offset: -6px;
+            padding: 2.2rem 2rem;
+            position: relative;
+        }
+
+        /* Sello de lacre roto en la esquina */
+        .wax-seal {
+            position: absolute;
+            top: -22px;
+            right: 25px;
+            width: 64px;
+            height: 64px;
+            background: radial-gradient(circle at 35% 35%, #b22222, #6b0f0f);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #e5c158;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            border: 3px dashed #7a1414;
+            transform: rotate(12deg);
+        }
+
+        .wax-seal::after {
+            content: "✕";
+            position: absolute;
+            font-size: 3.2rem;
+            color: var(--grinch-green);
+            font-family: 'Caveat', cursive;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            transform: rotate(-18deg);
+        }
+
+        /* Parte 1: Conde Soul */
+        .royal-section {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.65;
+            color: var(--ink-dark);
+        }
+
+        .royal-header {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            color: var(--royal-red);
+            font-size: 1.55rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.5);
+        }
+
+        .royal-section p {
+            margin-bottom: 1rem;
+        }
+
+        .cut-off {
+            position: relative;
+            display: inline;
+        }
+
+        /* Tachón verde brusco */
+        .green-slash {
+            margin: 1.2rem -1rem 1.5rem -1rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(90deg, transparent 0%, rgba(46, 204, 64, 0.18) 15%, rgba(20, 90, 29, 0.25) 50%, rgba(46, 204, 64, 0.15) 85%, transparent 100%);
+            border-top: 3px solid var(--grinch-dark);
+            border-bottom: 4px solid var(--grinch-green);
+            transform: rotate(-1.8deg);
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--grinch-dark);
+            font-weight: 700;
+        }
+
+        /* Parte 2: Secuestro del Grinch */
+        .grinch-section {
+            font-family: 'Caveat', cursive;
+            font-size: 1.55rem;
+            line-height: 1.45;
+            color: #133b18;
+            position: relative;
+        }
+
+        .grinch-scream {
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 1.85rem;
+            color: #1b7a28;
+            text-align: center;
+            letter-spacing: 1px;
+            margin: 0.5rem 0 1.2rem 0;
+            transform: rotate(-1.2deg);
+            text-shadow: 2px 2px 0px rgba(118, 255, 3, 0.35);
+        }
+
+        .grinch-section p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight-soul {
+            color: var(--royal-red);
+            font-weight: 700;
+            text-decoration: underline wavy var(--grinch-green);
+        }
+
+        /* Tarjeta de condiciones del Grinch */
+        .conditions-box {
+            background: rgba(20, 90, 29, 0.08);
+            border-left: 5px solid var(--grinch-dark);
+            border-right: 2px dashed rgba(20, 90, 29, 0.4);
+            border-top: 2px dashed rgba(20, 90, 29, 0.4);
+            border-bottom: 2px dashed rgba(20, 90, 29, 0.4);
+            border-radius: 8px;
+            padding: 1.4rem 1.6rem;
+            margin: 1.5rem 0;
+            transform: rotate(0.6deg);
+            box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .condition-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+
+        .condition-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .condition-icon {
+            font-size: 1.4rem;
+            line-height: 1.3;
+        }
+
+        .condition-label {
+            font-weight: 700;
+            color: #0e4414;
+            text-decoration: underline;
+        }
+
+        .date-placeholder {
+            display: inline-block;
+            background: #145a1d;
+            color: #e8ffe8;
+            padding: 0.1rem 0.7rem;
+            border-radius: 4px;
+            font-size: 1.35rem;
+            letter-spacing: 0.5px;
+            transform: rotate(-1deg);
+        }
+
+        .coal-word {
+            font-weight: 700;
+            color: #111;
+            background: rgba(0, 0, 0, 0.12);
+            padding: 0 0.4rem;
+            border-radius: 4px;
+        }
+
+        .grinch-signature {
+            margin-top: 1.6rem;
+            text-align: right;
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--grinch-dark);
+            transform: rotate(-2deg);
+        }
+
+        /* Manchas de tinta verde decorativas */
+        .ink-splat {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(46, 204, 64, 0.22);
+            filter: blur(1px);
+            pointer-events: none;
+        }
+
+        .splat-1 {
+            width: 38px;
+            height: 32px;
+            bottom: 18px;
+            left: 22px;
+            transform: rotate(25deg);
+        }
+
+        .splat-2 {
+            width: 14px;
+            height: 14px;
+            bottom: 48px;
+            left: 55px;
+        }
+
+        @media (max-width: 600px) {
+            .letter-container {
+                padding: 1.8rem 1rem;
+            }
+            .royal-border {
+                padding: 1.5rem 1.1rem;
+            }
+            .royal-header {
+                font-size: 1.25rem;
+            }
+            .grinch-scream {
+                font-size: 1.45rem;
+            }
+            .grinch-section {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="snow"></div>
+
+    <main class="letter-container">
+        <div class="royal-border">
+
+            <!-- Parte elegante del Conde Soul -->
+            <section class="royal-section">
+                <h1 class="royal-header">INVITACIÓN REAL DE LA VILLA DE LOS DICEGRACIADOS</h1>
+                
+                <p>Queridos ayudantes de Santa Claus,</p>
+                
+                <p class="cut-off">
+                    Un año más se acercan estas fechas tan señaladas y, como Conde de nuestra querida Villa de los Dicegraciados, quiero agradeceros vuestro incansable esfuerzo preparando la Navidad. Como marca la tradición, tengo el honor de invitaros a nuestro gran banquete anual para brindar por un año más de trabajo, amistad y...
+                </p>
+            </section>
+
+            <!-- Parte sabotaje del Grinch -->
+            <section class="grinch-section">
+                <h2 class="grinch-scream">¡BASTA DE CURSILERÍAS! ¡QUÉ ASCO ME DAIS!</h2>
+
+                <p>
+                    Vuestro querido <span class="highlight-soul">Conde Soul</span> no va a celebrar ningún banquete este año. Lo tengo bien atado y amordazado en lo alto de mi montaña, y de paso me he llevado el trineo con todos vuestros preciados regalos.
+                </p>
+
+                <p>
+                    Si queréis volver a ver a vuestro Conde de una pieza y salvar vuestra querida Navidad, más os vale presentaros bajo mis condiciones:
+                </p>
+
+                <div class="conditions-box">
+                    <div class="condition-item">
+                        <span class="condition-icon">📅</span>
+                        <div>
+                            <span class="condition-label">Fecha del rescate:</span> 
+                            <span class="date-placeholder">Jueves 7 de Diciembre</span>
+                        </div>
+                    </div>
+
+                    <div class="condition-item">
+                        <span class="condition-icon">🎭</span>
+                        <div>
+                            <span class="condition-label">Código de vestimenta obligatorio:</span> Venid disfrazados o caracterizados con vuestras mejores pintas de ayudantes de Santa y espíritu navideño. Quiero veros bien ridículos frente a la cámara (duendes, elfos, renos, muñecos de nieve, árboles de Navidad, regalos... no hay excusas).
+                        </div>
+                    </div>
+
+                    <div class="condition-item">
+                        <span class="condition-icon">🕘</span>
+                        <div>
+                            <span class="condition-label">Apertura de puertas:</span> <strong>21:00 h (20:00 h en Gales)</strong>. Tened vuestra cena casi preparada para servir, porque una vez estemos todos conectados os diré cuándo podéis ir a por ella para empezar el festín.
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    Allí os estaré esperando para ver si tenéis lo que hay que tener para rescatar al Conde Soul... o si os vais a quedar solo con un buen saco de <span class="coal-word">carbón</span>.
+                </p>
+
+                <div class="grinch-signature">
+                    Firmado: Alguien que odia vuestros malditos villancicos. 💚
+                </div>
+            </section>
+
+            <div class="ink-splat splat-1"></div>
+            <div class="ink-splat splat-2"></div>
+        </div>
+    </main>
+</body>
+</html>
